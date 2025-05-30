@@ -42,11 +42,8 @@ def download_video(link, start_time, end_time, download_path):
         "quiet": True,
         "no_warnings": True,
     }
-    try:
-        with yt_dlp.YoutubeDL(youtube_dl_options) as ydl:
-            ydl.download([link])
-    except Exception as e:
-        print(f"Error downloading video: {str(e)}")
+    with yt_dlp.YoutubeDL(youtube_dl_options) as ydl:
+        ydl.download([link])
 
 
 def reduce_fps(video_path, output_path, new_fps=30):
